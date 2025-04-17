@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "5b494a7a-3b99-4005-b688-a1f24ad1872f",
+		"name": "Complaints requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28999278"
+	},
+	"item": [
+		{
+			"name": "Get all complaints",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password",
+						"username": "user"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "localhost:8080/complaint"
+			},
+			"response": []
+		},
+		{
+			"name": "Create new complaint",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password",
+						"username": "user"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Forwarded-For",
+						"value": "196.247.180.132",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"my complaint! ą,ć,ę,ł,Ü,ß\", \"productId\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/complaint"
+			},
+			"response": []
+		},
+		{
+			"name": "Update complaint",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password",
+						"username": "user"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Forwarded-For",
+						"value": "196.247.180.132",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"my updated complaint...\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/complaint/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"complaint",
+						"1"
+					],
+					"query": [
+						{
+							"key": "complaintId",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
